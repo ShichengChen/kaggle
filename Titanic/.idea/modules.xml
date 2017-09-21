@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Titanic.iml" filepath="$PROJECT_DIR$/.idea/Titanic.iml" />
+      <module fileurl="file://$USER_HOME$/StackNet/example/example_amazon/.idea/example_amazon.iml" filepath="$USER_HOME$/StackNet/example/example_amazon/.idea/example_amazon.iml" />
+    </modules>
+  </component>
+</project>
