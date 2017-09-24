@@ -107,4 +107,4 @@ def featureEngineering():
     dataset.to_csv('featureEngineering.csv')
     return dataset
 
-print featureEngineering().columns.values
+dataset = featureEngineering()
