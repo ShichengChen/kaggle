@@ -1,8 +1,0 @@
-git pull
-git add .
-<<<<<<< HEAD
-git commit -m "auto commit"
-=======
-git commit -m "auto push"
->>>>>>> 371a73f7b28f25c2619a58b20afdc95f17cfc039
-git push
