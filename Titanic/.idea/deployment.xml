@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="172.21.150.249">
+    <serverData>
+      <paths name="172.21.150.249">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/pycharm/Titanic" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/pycharm/example_amazon" local="$USER_HOME$/StackNet/example/example_amazon" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
