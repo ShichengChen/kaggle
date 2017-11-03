@@ -1,0 +1,18 @@
+[W 20:43:04.259 NotebookApp] Collisions detected in /home/coder.chenshicheng/.jupyter/jupyter_notebook_config.py and /home/coder.chenshicheng/.jupyter/jupyter_notebook_config.json config files. /home/coder.chenshicheng/.jupyter/jupyter_notebook_config.json has higher priority: {
+      "NotebookApp": {
+        "password": "u'sha1:e5d684e28cd8:8aed4f5b3efe532850b07dc9a4a12918bfe9d481' ignored, using u'sha1:50f5fed9c3af:e7d2c553c2ef0c99e0a6241d14d6634bde973b60'"
+      }
+    }
+[I 20:43:04.759 NotebookApp] The port 9999 is already in use, trying another port.
+[I 20:43:04.767 NotebookApp] Serving notebooks from local directory: /home/coder.chenshicheng/kaggle/AllstateClaimsSeverity/allstate_capstone-master
+[I 20:43:04.767 NotebookApp] 0 active kernels 
+[I 20:43:04.767 NotebookApp] The Jupyter Notebook is running at: https://172.21.150.249:10000/
+[I 20:43:04.767 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 20:43:21.078 NotebookApp] 302 GET /tree/kaggle/Titanic (172.21.149.217) 1.61ms
+[I 20:43:32.171 NotebookApp] 302 POST /login?next=%2Ftree%2Fkaggle%2FTitanic (172.21.149.217) 1.84ms
+[W 20:43:32.189 NotebookApp] 404 GET /tree/kaggle/Titanic (172.21.149.217) 12.71ms referer=https://172.21.150.249:10000/login?next=%2Ftree%2Fkaggle%2FTitanic
+[I 20:43:36.545 NotebookApp] 302 GET / (172.21.149.217) 3.70ms
+[W 20:44:06.417 NotebookApp] 404 GET /tree/kaggle/Titanic (172.21.149.217) 1.88ms referer=None
+[I 20:44:11.465 NotebookApp] 302 GET / (172.21.149.217) 0.38ms
+[I 20:44:52.380 NotebookApp] Interrupted...
+[I 20:44:52.381 NotebookApp] Shutting down kernels
