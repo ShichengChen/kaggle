@@ -1,0 +1,1 @@
+Model Testing: {'hidden1_dropout': 0.41052631578947368, 'hidden1_units': 334, 'hidden2_dropout': 0.3666666666666667, 'hidden2_units': 168, 'hidden3_dropout': 0.18888888888888888, 'hidden3_units': 73, 'optimizer': 'nadam'}
