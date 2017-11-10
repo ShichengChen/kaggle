@@ -1,0 +1,130 @@
+CV score for the final model: [ 1143.03413002  1143.49019949  1142.57934159  1142.91492371  1142.96326332]
+1142.9963716259999
+from keras import regularizers
+from keras.initializers import he_normal
+from keras.regularizers import l2
+from keras.activations import selu
+from keras.optimizers import Adam
+def hyper_model(seed = None):
+    model = Sequential()
+    model.add(Dense(437, input_dim=train_x.shape[1], kernel_initializer=he_normal(seed = seed)
+                    ,kernel_regularizer=l2(0.002)))
+    model.add(BatchNormalization())
+    model.add(Activation('relu'))
+    model.add(Dropout(0.536))
+    
+    model.add(Dense(182, kernel_initializer=he_normal(seed = seed),kernel_regularizer=l2(0.002)))
+    model.add(BatchNormalization())
+    model.add(Activation('relu'))
+    model.add(Dropout(0.4))
+    
+    model.add(Dense(73, kernel_initializer=he_normal(seed = seed),kernel_regularizer=l2(0.002)))
+    model.add(BatchNormalization())
+    model.add(Activation('relu'))
+    model.add(Dropout(0.233))
+    
+    model.add(Dense(1, kernel_initializer=he_normal(seed = seed),kernel_regularizer=l2(0.002)))
+    adam = Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
+    #model.compile(optimizer='adadelta',loss = 'mae',metrics = [mae_score])
+    model.compile(optimizer='adadelta',loss = 'mae')
+    return model
+
+
+# http://cs231n.github.io/neural-networks-3/
+
+import numpy as np
+import scipy.sparse as sp
+
+from keras import backend as K
+from keras.callbacks import Callback
+from keras.models import load_model
+
+import sys
+import warnings
+class ExponentialMovingAverage(Callback):
+    """create a copy of trainable weights which gets updated at every
+       batch using exponential weight decay. The moving average weights along
+       with the other states of original model(except original model trainable
+       weights) will be saved at every epoch if save_mv_ave_model is True.
+       If both save_mv_ave_model and save_best_only are True, the latest
+       best moving average model according to the quantity monitored
+       will not be overwritten. Of course, save_best_only can be True
+       only if there is a validation set.
+       This is equivalent to save_best_only mode of ModelCheckpoint
+       callback with similar code. custom_objects is a dictionary
+       holding name and Class implementation for custom layers.
+       At end of every batch, the update is as follows:
+       mv_weight -= (1 - decay) * (mv_weight - weight)
+       where weight and mv_weight is the ordinal model weight and the moving
+       averaged weight respectively. At the end of the training, the moving
+       averaged weights are transferred to the original model.
+       """
+    def __init__(self, decay=0.999, filepath='model/model{epoch:02d}-{val_loss:.2f}.hdf5',
+                 save_mv_ave_model=False, verbose=0,
+                 save_best_only=False, monitor='val_loss', mode='auto',
+                 save_weights_only=False, custom_objects={}):
+        self.decay = decay
+        self.filepath = filepath
+        self.verbose = verbose
+        self.save_mv_ave_model = save_mv_ave_model
+        self.save_weights_only = save_weights_only
+        self.save_best_only = save_best_only
+        self.monitor = monitor
+        self.custom_objects = custom_objects  # dictionary of custom layers
+        self.sym_trainable_weights = None  # trainable weights of model
+        self.mv_trainable_weights_vals = None  # moving averaged values
+        self.epochs = 0
+
+        if mode not in ['auto', 'min', 'max']:
+            warnings.warn('ModelCheckpoint mode %s is unknown, '
+                          'fallback to auto mode.' % (mode),
+                          RuntimeWarning)
+            mode = 'auto'
+
+        if mode == 'min':
+            self.monitor_op = np.less
+            self.best = np.Inf
+        elif mode == 'max':
+            self.monitor_op = np.greater
+            self.best = -np.Inf
+        else:
+            if 'acc' in self.monitor:
+                self.monitor_op = np.greater
+                self.best = -np.Inf
+            else:
+                self.monitor_op = np.less
+                self.best = np.Inf
+
+    def on_train_begin(self, logs={}):
+        self.sym_trainable_weights = self.model.trainable_weights
+        # Initialize moving averaged weights using original model values
+        self.mv_trainable_weights_vals = {x.name: K.get_value(x).copy() for x in
+                                          self.sym_trainable_weights}
+        if self.verbose:
+            print('Created a copy of model weights to initialize moving averaged weights.')
+    def on_train_end(self, logs={}):
+        '''old = K.get_value(self.model.trainable_weights[0])
+        name = self.model.trainable_weights[0].name
+        assert((old != self.mv_trainable_weights_vals[name]).any())'''
+        
+        for weight in self.sym_trainable_weights:
+            K.set_value(weight, self.mv_trainable_weights_vals[weight.name])
+
+        '''old = K.get_value(self.model.trainable_weights[0])
+        name = self.model.trainable_weights[0].name
+        assert((old == self.mv_trainable_weights_vals[name]).all())'''
+            
+    def on_batch_end(self, batch, logs={}):
+        if(self.epochs + 5 > self.params['epochs']):
+            for weight in self.sym_trainable_weights:
+                old_val = self.mv_trainable_weights_vals[weight.name].copy()
+                self.mv_trainable_weights_vals[weight.name] = \
+                    old_val * self.decay + (1.0 - self.decay) * K.get_value(weight).copy()
+            #assert((old_val == self.mv_trainable_weights_vals[weight.name]).all())
+            #assert((old_val == K.get_value(weight)).all())
+
+    def on_epoch_end(self, epoch, logs={}):
+        self.epochs += 1
+        if(self.epochs + 5 > self.params['epochs']):
+            filepath = self.filepath.format(epoch=epoch + 1, **logs)
+            self.model.save(filepath, overwrite=True)
