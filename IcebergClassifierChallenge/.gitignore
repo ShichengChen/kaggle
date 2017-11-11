@@ -3,4 +3,5 @@
 *.pickle
 *.pyc
 test.csv
-train.csv   
+train.csv
+CIFAR10_mxnet-master/
