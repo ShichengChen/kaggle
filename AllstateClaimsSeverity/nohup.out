@@ -1,0 +1,22 @@
+[W 21:29:03.876 NotebookApp] Collisions detected in /home/coder.chenshicheng/.jupyter/jupyter_notebook_config.py and /home/coder.chenshicheng/.jupyter/jupyter_notebook_config.json config files. /home/coder.chenshicheng/.jupyter/jupyter_notebook_config.json has higher priority: {
+      "NotebookApp": {
+        "password": "'sha1:e5d684e28cd8:8aed4f5b3efe532850b07dc9a4a12918bfe9d481' ignored, using 'sha1:50f5fed9c3af:e7d2c553c2ef0c99e0a6241d14d6634bde973b60'"
+      }
+    }
+[I 21:29:04.343 NotebookApp] JupyterLab alpha preview extension loaded from /home/coder.chenshicheng/anaconda3/lib/python3.6/site-packages/jupyterlab
+JupyterLab v0.27.0
+Known labextensions:
+[I 21:29:04.345 NotebookApp] Running the core application with no additional extensions or settings
+[I 21:29:04.348 NotebookApp] Serving notebooks from local directory: /home/coder.chenshicheng/kaggle/AllstateClaimsSeverity
+[I 21:29:04.348 NotebookApp] 0 active kernels 
+[I 21:29:04.348 NotebookApp] The Jupyter Notebook is running at: https://172.21.150.249:9999/
+[I 21:29:04.348 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 21:29:11.262 NotebookApp] 404 GET /tree/kaggle/AllstateClaimsSeverity (172.21.149.217) 43.14ms referer=None
+[W 21:29:12.505 NotebookApp] 404 GET /tree/kaggle/AllstateClaimsSeverity (172.21.149.217) 1.73ms referer=None
+[W 21:29:13.265 NotebookApp] 404 GET /tree/kaggle/AllstateClaimsSeverity (172.21.149.217) 1.69ms referer=None
+[W 21:29:13.472 NotebookApp] 404 GET /tree/kaggle/AllstateClaimsSeverity (172.21.149.217) 1.47ms referer=None
+[W 21:29:13.616 NotebookApp] 404 GET /tree/kaggle/AllstateClaimsSeverity (172.21.149.217) 1.42ms referer=None
+[W 21:29:13.796 NotebookApp] 404 GET /tree/kaggle/AllstateClaimsSeverity (172.21.149.217) 2.16ms referer=None
+[W 21:29:18.669 NotebookApp] 404 GET /api/kernels/2baf60c9-63d0-4e46-bd84-b73360ef8563/channels?session_id=F339419E2F7C408181A526C0B3023C89 (172.21.149.217): Kernel does not exist: 2baf60c9-63d0-4e46-bd84-b73360ef8563
+[W 21:29:18.671 NotebookApp] 404 GET /api/kernels/2baf60c9-63d0-4e46-bd84-b73360ef8563/channels?session_id=F339419E2F7C408181A526C0B3023C89 (172.21.149.217) 18.19ms referer=None
+[W 21:29:24.485 NotebookApp] 404 GET /tree/kaggle/AllstateClaimsSeverity (172.21.149.217) 1.90ms referer=None

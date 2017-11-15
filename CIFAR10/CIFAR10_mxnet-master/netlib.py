@@ -102,9 +102,7 @@ class ResNet(nn.HybridBlock):
         with self.name_scope():
             net = self.net = nn.HybridSequential()
             # block 1
-            net.add(nn.Conv2D(channels=32, kernel_size=3, strides=1, padding=1),
-                   nn.BatchNorm(),
-                   nn.Activation(activation='relu'))
+            net.add(nn.Conv2D(channels=32, kernel_size=3, strides=1, padding=1),nn.BatchNorm(),nn.Activation(activation='relu'))
             # block 2
             for _ in range(3):
                 net.add(Residual(channels=32))
