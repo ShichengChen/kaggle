@@ -1,0 +1,7 @@
+*.json
+*.hdf5
+*.pickle
+*.pyc
+test.csv
+train.csv
+CIFAR10_mxnet-master/
