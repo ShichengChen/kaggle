@@ -23,8 +23,8 @@
       <file leaf-file-name="netlib.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CIFAR10_mxnet-master/netlib.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="559">
-              <caret line="104" column="83" lean-forward="false" selection-start-line="104" selection-start-column="83" selection-end-line="104" selection-end-column="83" />
+            <state relative-caret-position="397">
+              <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="18" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -186,8 +186,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CIFAR10_mxnet-master/netlib.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="104" column="83" lean-forward="false" selection-start-line="104" selection-start-column="83" selection-end-line="104" selection-end-column="83" />
+        <state relative-caret-position="397">
+          <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="18" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
